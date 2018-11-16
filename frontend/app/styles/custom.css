@@ -859,6 +859,10 @@ button::-moz-focus-inner {
   font-family: "Verdana";
 }
 
+.companyInSearch {
+  color: red;
+}
+
 /* Bootstrap Fixes */
 .card {
   border: 0px;
