@@ -863,9 +863,13 @@ button::-moz-focus-inner {
    border:1px solid #a0a0a0;
 }
 
-.navbar .navbar-nav .nav-item .greyNav > .active {
+.navbar .navbar-nav .nav-item .nav-link .active {
   color: #1E5A96;
   text-decoration: underline;
+}
+
+.navbar .navbar-nav .nav-item .nav-link a{
+  color: #8e8e8e ;
 }
 
 /* Bootstrap Fixes */
