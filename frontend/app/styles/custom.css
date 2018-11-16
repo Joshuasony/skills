@@ -844,10 +844,6 @@ button::-moz-focus-inner {
   color: #8e8e8e ;
 }
 
-.navbar .navbar-nav .nav-item .nav-link a{
-  color: #8e8e8e ;
-}
-
 /* Bootstrap Fixes */
 .card {
   border: 0px;
