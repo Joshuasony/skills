@@ -831,8 +831,13 @@ button::-moz-focus-inner {
   font-family: "Verdana";
 }
 
-.companyInSearch {
-  color: red;
+.border-black {
+   border:1px solid #a0a0a0;
+}
+
+.navbar .navbar-nav .nav-item .greyNav > .active {
+  color: #1E5A96;
+  text-decoration: underline;
 }
 
 /* Bootstrap Fixes */
