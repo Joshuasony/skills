@@ -830,7 +830,6 @@ button::-moz-focus-inner {
   font-family: "Verdana";
 }
 
-<<<<<<< HEAD
 /* Border with custom color */
 .border-black {
    border:1px solid #b5b5b5;
@@ -843,10 +842,6 @@ button::-moz-focus-inner {
 
 .navbar .navbar-nav .nav-item .nav-link a{
   color: #8e8e8e ;
-=======
-.companyInSearch {
-  color: red;
->>>>>>> Added company to every person in the person-search
 }
 
 /* Bootstrap Fixes */
