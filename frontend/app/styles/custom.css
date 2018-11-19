@@ -832,7 +832,7 @@ button::-moz-focus-inner {
 
 /* Border with custom color */
 .border-black {
-   border:1px solid #a0a0a0;
+   border:1px solid #b5b5b5;
 }
 
 /* These two are for the CV and Fachwissensskala options under person-actions */
