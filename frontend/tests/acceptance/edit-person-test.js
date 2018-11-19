@@ -15,7 +15,7 @@ moduleForAcceptance('Acceptance | edit person', {
 });
 
 test('/people/:id edit person data', async function(assert) {
-  assert.expect(6);
+  assert.expect(5);
 
   await applicationPage.visitHome('/');
   await selectChoose('#people-search', '.ember-power-select-option', 0);
@@ -39,8 +39,7 @@ test('/people/:id edit person data', async function(assert) {
   assert.equal(page.profileData.name, 'Hansjoggeli');
   assert.equal(page.profileData.title, 'Dr.');
   assert.equal(page.profileData.role, 'Controller');
-  assert.equal(page.profileData.nationality, 'Samoa');
-  assert.equal(page.profileData.nationality2, 'Iran');
+  assert.equal(page.profileData.nationalities, 'Samoa , Iran');
   assert.equal(page.profileData.location, 'Chehrplatz Schwandi');
 });
 
