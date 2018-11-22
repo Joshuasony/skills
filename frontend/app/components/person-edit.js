@@ -87,7 +87,6 @@ export default Component.extend({
     },
 
     switchNationality(value) {
-      console.log(value)
       if(value == false){
         this.set('person.nationality2', undefined);
       }
