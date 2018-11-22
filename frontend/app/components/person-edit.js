@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import { getNames as countryNames } from 'ember-i18n-iso-countries';
+import Checkbox from '@ember/component/checkbox';
 
 
 export default Component.extend({
@@ -17,6 +18,15 @@ export default Component.extend({
       'Projektleiter (M1)', 'Bereichsleiter (M2)', 'Bereichsleiter GL (M3)', 'Kaufmann / Kauffrau', 'Controller',
       'Marketing- und Kommunikationsfachmann / -fachfrau', 'Verkäufer', 'Key Account Manager']);
     this.initNationalities();
+    this.initCheckbox();
+  },
+
+  initCheckbox() {
+    if(this.get('person.nationality2')){
+      this.set('secondNationality', true)
+    }else{
+      this.set('secondNationality', false)
+    }
   },
 
   initNationalities() {
@@ -41,7 +51,6 @@ export default Component.extend({
   companiesToSelect: computed(function() {
     return this.get('store').findAll('company');
   }),
-
 
   personPictureUploadPath: computed('person.id', function() {
     return `/people/${this.get('person.id')}/picture`;
@@ -79,6 +88,13 @@ export default Component.extend({
     },
 
     handleBlur() {
+    },
+
+    switchNationality(value) {
+      console.log(value)
+      if(value == false){
+        this.set('person.nationality2', undefined);
+      }
     },
 
     setBirthdate(selectedDate) {

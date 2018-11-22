@@ -615,9 +615,6 @@ form textarea{
   min-height: 35px;
 }
 
-.table-uebersicht tr:first-child {
-  font-size: 140%;
-}
 
 .skill {
   min-width: 100px;
