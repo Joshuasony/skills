@@ -103,7 +103,8 @@
               <tr>
                 <td>
                   <Label>Doppelbürger</Label>
-                  {{input type="checkbox" checked=secondNationality click=(action "switchNationality" value="target.checked")}}
+                  {{input type="checkbox" checked=secondNationality click=(action "switchNationality" value="target.checked")
+                    id="toggle-nationalities-id"}}
                 </td>
               </tr>
               <tr>
@@ -124,20 +125,20 @@
               </tr>
               <tr>
                 {{#if secondNationality}}
-                <td>
-                  <Label>Zweite Nationalität</Label>
-                  {{#power-select
-                    triggerId="nationality2"
-                    options=countries
-                    selected=selectedNationality2
-                    onchange=(action "setNationality2")
-                    onfocus=(action "handleFocus")
-                    onblur=(action "handleBlur")
-                    searchField="1"
-                    as |country|}}
-                    <span class="flag-icon flag-icon-{{to-lowercase country.[0]}}"></span>{{country.[1]}}
-                  {{/power-select}}
-                </td>
+                  <td>
+                    <Label>Zweite Nationalität</Label>
+                    {{#power-select
+                      triggerId="nationality2"
+                      options=countries
+                      selected=selectedNationality2
+                      onchange=(action "setNationality2")
+                      onfocus=(action "handleFocus")
+                      onblur=(action "handleBlur")
+                      searchField="1"
+                      as |country|}}
+                      <span class="flag-icon flag-icon-{{to-lowercase country.[0]}}"></span>{{country.[1]}}
+                    {{/power-select}}
+                  </td>
                 {{/if}}
               </tr>
             </table>
