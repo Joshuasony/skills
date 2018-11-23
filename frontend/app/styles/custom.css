@@ -568,15 +568,47 @@ form textarea{
 .btn-w-1 {
   width: 160px;
 }
-
+/*
 .table-uebersicht td {
   padding-bottom: 5px;
   vertical-align: top;
   font-size: 90%;
 }
 
-.datepicker_fix {
+.table-uebersicht {
+  width: 100%;
+}
 
+.table-uebersicht td:first-child, .table-uebersicht label {
+  width: 50%;
+}
+
+.table-uebersicht label {
+  float: left;
+}
+
+.table-uebersicht td:last-child {
+  width: 50%;
+}
+
+.table-uebersicht input, .table-uebersicht button, .table-uebersicht .ember-power-select-trigger {
+  width: 45%;
+  float: right;
+}
+
+.table-uebersicht .nextToDelete {
+  position: relative;
+}
+
+.table-uebersicht .nextToDelete input {
+  width: 40%;
+  margin-right: 5%;
+}
+
+.table-uebersicht .deleteField {
+  position: absolute;
+  top: 5px;
+  right: 12px;
 }
 
 .table-uebersicht tr td:first-child {
@@ -585,6 +617,14 @@ form textarea{
   padding-right: 10px;
   height: 35px;
   min-height: 35px;
+}*/
+
+.description {
+  color: grey;
+}
+
+.person-info {
+
 }
 
 
@@ -660,43 +700,6 @@ a:hover .fa, a:active .fa, a:focus .fa {
 .info:before {
   content: "\f129";
   font-size: 20px;
-}
-
-/* Table Styling in Tabs */
-.table-uebersicht {
-  width: 100%;
-}
-
-.table-uebersicht td:first-child, .table-uebersicht label {
-  width: 50%;
-}
-
-.table-uebersicht label {
-  float: left;
-}
-
-.table-uebersicht td:last-child {
-  width: 50%;
-}
-
-.table-uebersicht input, .table-uebersicht button, .table-uebersicht .ember-power-select-trigger {
-  width: 45%;
-  float: right;
-}
-
-.table-uebersicht .nextToDelete {
-  position: relative;
-}
-
-.table-uebersicht .nextToDelete input {
-  width: 40%;
-  margin-right: 5%;
-}
-
-.table-uebersicht .deleteField {
-  position: absolute;
-  top: 5px;
-  right: 12px;
 }
 
 /* FWS */
