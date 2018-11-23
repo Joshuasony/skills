@@ -37,7 +37,7 @@ test('/people/:id edit person data', async function(assert) {
 
   assert.equal(page.profileData.name, 'Hansjoggeli');
   assert.equal(page.profileData.title, 'Dr.');
-  assert.equal(page.profileData.role, 'Controller');
+  assert.equal(page.profileData.role, 'System-Engineer');
   assert.equal(page.profileData.nationalities, 'Samoa');
   assert.equal(page.profileData.location, 'Chehrplatz Schwandi');
 
