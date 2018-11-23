@@ -13,10 +13,16 @@ import {
 export default create({
   visit: visitable('/people/:person_id'),
   toggleEditFormButton: clickable('[data-test-person-edit-form-toggle]'),
+  toggleNationalitiesCheckbox: clickable('#toggle-nationalities-id'),
 
   toggleEditForm() {
     this.toggleEditFormButton();
 
+    return this.editForm;
+  },
+
+  toggleNationalities() {
+    this.toggleNationalitiesCheckbox();
     return this.editForm;
   },
 

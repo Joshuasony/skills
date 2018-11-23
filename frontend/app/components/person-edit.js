@@ -3,7 +3,6 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 import { getNames as countryNames } from 'ember-i18n-iso-countries';
-import Checkbox from '@ember/component/checkbox';
 
 
 export default Component.extend({
@@ -22,9 +21,9 @@ export default Component.extend({
   },
 
   initCheckbox() {
-    if(this.get('person.nationality2')){
+    if (this.get('person.nationality2')) {
       this.set('secondNationality', true)
-    }else{
+    } else {
       this.set('secondNationality', false)
     }
   },
@@ -91,7 +90,7 @@ export default Component.extend({
     },
 
     switchNationality(value) {
-      if(value == false){
+      if (value == false) {
         this.set('person.nationality2', undefined);
       }
     },
