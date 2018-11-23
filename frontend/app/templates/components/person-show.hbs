@@ -17,11 +17,6 @@
              src={{person.picturePath}}
                class="img-polaroid profil-img rounded-circle"
         alt="">
-        <a onclick={{personEditing}} data-test-person-edit-form-toggle class="button mt-2">
-          <i class="fa edit">
-          </i>
-          Bearbeiten
-        </a>
       </div>
       <div class="col-sm-3">
         <table class="table-person">
@@ -45,7 +40,9 @@
             <td>Funktion</td>
           </tr>
           <tr>
-            <td id="data-test-person-role">{{person.role}}</td>
+            {{#if person.roles.length}}
+              <td id="data-test-person-role">{{person.roles.firstObject.name}}</td>
+            {{/if}}
           </tr>
           <div class="mb-2">
           </div>
