@@ -1,4 +1,4 @@
-<div id="profil-uebersicht">
+<div id="profil-company">
   {{#with (changeset company validations) as |changeset|}}
     {{#form-for changeset submit=(action 'submit') as |f|}}
       <div class="card-header bg-primary">
@@ -21,7 +21,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-4">
-              <table class="table-uebersicht">
+              <table class="table-company">
                 <tr>
                   <td>{{f.text-field 'name' label="Name" required=true}}</td>
                 </tr>
@@ -52,7 +52,7 @@
               </table>
             </div>
             <div class="col-sm-4">
-              <table class="table-uebersicht">
+              <table class="table-company">
                 <tr>
                   <td>{{f.text-field 'partnermanager' label="PM"}}</td>
                 </tr>
@@ -71,7 +71,7 @@
               </table>
             </div>
             <div class="col-sm-4">
-              <table class="table-uebersicht">
+              <table class="table-company">
                 <tr>
                   <td>{{f.text-field 'level' label="Level"}}</td>
                 </tr>

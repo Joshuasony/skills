@@ -596,65 +596,87 @@ form textarea{
 .btn-w-1 {
   width: 160px;
 }
-/*
-.table-uebersicht td {
+
+.table-company td {
   padding-bottom: 5px;
   vertical-align: top;
   font-size: 90%;
 }
 
-.table-uebersicht {
+.table-company {
   width: 100%;
 }
 
-.table-uebersicht td:first-child, .table-uebersicht label {
+.table-company td:first-child, .table-company label {
   width: 50%;
 }
 
-.table-uebersicht label {
+.table-company label {
   float: left;
 }
 
-.table-uebersicht td:last-child {
+.table-company td:last-child {
   width: 50%;
 }
 
-.table-uebersicht input, .table-uebersicht button, .table-uebersicht .ember-power-select-trigger {
+.table-company input, .table-company button, .table-company .ember-power-select-trigger {
   width: 45%;
   float: right;
 }
 
-.table-uebersicht .nextToDelete {
+.table-company .nextToDelete {
   position: relative;
 }
 
-.table-uebersicht .nextToDelete input {
+.table-company .nextToDelete input {
   width: 40%;
   margin-right: 5%;
 }
 
-.table-uebersicht .deleteField {
+.table-company .deleteField {
   position: absolute;
   top: 5px;
   right: 12px;
 }
 
-.table-uebersicht tr td:first-child {
+.table-company tr td:first-child {
   text-align: right;
   font-weight: bold;
   padding-right: 10px;
   height: 35px;
   min-height: 35px;
-}*/
+}
 
-.description {
+.table-company tr:first-child {
+  font-size: 140%;
+}
+
+
+/* Person Übersicht*/
+
+.table-person {
+
+}
+
+.table-person input, .table-person .ember-power-select-trigger {
+  width: 100%;
+  float: right;
+}
+
+.table-person label {
+  float: left;
+  text-align: left;
+  margin-bottom: 0px !important;
+  margin-top: 5px !important;
+}
+
+.table-person tr {
+  height:100%;
+}
+
+.table-person .description {
   color: grey;
 }
-
-.person-info {
-
-}
-
 
 .skill {
   min-width: 100px;

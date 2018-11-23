@@ -15,11 +15,11 @@
       </div>
       <div id="collapseOne" class="collapse show border border-primary rounded-bottom">
         <div class="card-body row">
-          <div class="col-sm-2" id="profile-content-edit">
+          <div class="col-sm-3" id="profile-content-edit">
             {{picture-edit picturePath=person.picturePath uploadPath=personPictureUploadPath}}
           </div>
-          <div class="col-sm-5">
-            <table class="table-uebersicht">
+          <div class="col-sm-3">
+            <table class="table-person">
               <tr>
                 <td>{{f.text-field 'name' label="Name"}}</td>
               </tr>
@@ -74,13 +74,13 @@
               </tr>
             </table>
           </div>
-          <div class="col-sm-5">
-            <table class="table-uebersicht">
+          <div class="col-sm-3">
+            <table class="table-person">
               <tr>
                 <td>{{f.text-field 'location' label="Wohnort"}}</td>
               </tr>
               <tr>
-                <td>{{f.text-field 'language' label="Sprache"}}</td>
+                <td>{{f.text-field 'language' label="Sprachen"}}</td>
               </tr>
               <tr>
                 <td>
@@ -102,14 +102,12 @@
               <tr>
                 <td>
                   <Label>Doppelbürger</Label>
-                  <div>
                   {{input type="checkbox" checked=secondNationality click=(action "switchNationality" value="target.checked")}}
-                  </div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Label>Nationalität</Label>
+                  <Label>Erste Nationlität</Label>
                   {{#power-select
                     triggerId="nationality"
                     options=countries
@@ -126,7 +124,7 @@
               <tr>
                 {{#if secondNationality}}
                 <td>
-                  <Label>Weitere Nationalität</Label>
+                  <Label>Zweite Nationalität</Label>
                   {{#power-select
                     triggerId="nationality2"
                     options=countries
@@ -141,6 +139,11 @@
                 </td>
                 {{/if}}
               </tr>
+            </table>
+          </div>
+          <div class="col-sm-3">
+            <table class="table-person">
+              Sprachen
             </table>
           </div>
         </div>
