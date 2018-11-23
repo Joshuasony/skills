@@ -2,7 +2,7 @@
   <div class="card-header bg-primary">
     <div class="row">
       <div class="col-sm-6">
-        <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseAdvancedTraining">Weiterbildung</a>
+        <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseAdvancedTraining">Weiterbildung ({{person.advancedTrainings.length}})</a>
       </div>
       <div class="col-sm-6 text-right d-block">
         <a onclick={{action (toggle 'advanced-trainingNew' this)}} role="button" class="card-link text-white"><i class="fa {{~if advanced-trainingNew ' abort' ' add'~}}"></i></a>

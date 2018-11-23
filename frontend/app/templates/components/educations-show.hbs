@@ -1,7 +1,8 @@
 <div class="card-header bg-primary">
   <div class="row">
     <div class="col-sm-6">
-      <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseEducation">Ausbildung</a>
+      <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseEducation">Ausbildung
+      ({{person.educations.length}})</a>
     </div>
     <div class="col-sm-6 text-right d-block">
       <a onclick={{action (toggle 'educationNew' this)}} role="button" class="card-link text-white"><i class="fa {{~if educationNew ' abort' ' add'~}}"></i></a>
