@@ -4,7 +4,7 @@
       <div class="card-header bg-primary">
         <div class="row">
           <div class="col-sm-6">
-            <a class="card-link text-white" href="#">Übersicht</a>
+            <a class="card-link text-white" href="#">Personalien</a>
           </div>
           <div class="col-sm-6 text-right d-block">
             <a {{action 'submit' changeset}} role="button" id="submit-button" class="card-link text-white"><i class="fa save"></i></a>
@@ -59,6 +59,10 @@
                   {{/power-select}}
                 </td>
               </tr>
+            </table>
+          </div>
+          <div class="col-sm-3">
+            <table class="table-person">
               <tr>
                 <td>
                   <label class="label-date form-field--label" for='date_location'>Geb.Datum</label>
@@ -72,15 +76,8 @@
                   </div>
                 </td>
               </tr>
-            </table>
-          </div>
-          <div class="col-sm-3">
-            <table class="table-person">
               <tr>
                 <td>{{f.text-field 'location' label="Wohnort"}}</td>
-              </tr>
-              <tr>
-                <td>{{f.text-field 'language' label="Sprachen"}}</td>
               </tr>
               <tr>
                 <td>
@@ -103,7 +100,7 @@
                 <td>
                   <Label>Doppelbürger</Label>
                   {{input type="checkbox" checked=secondNationality click=(action "switchNationality" value="target.checked")
-                    id="toggle-nationalities-id"}}
+                    id="toggle-nationalities-id" class="checkbox"}}
                 </td>
               </tr>
               <tr>
@@ -144,7 +141,9 @@
           </div>
           <div class="col-sm-3">
             <table class="table-person">
-              Sprachen
+              <tr>
+                <td>{{f.text-field 'language' label="Sprachen"}}</td>
+              </tr>
             </table>
           </div>
         </div>

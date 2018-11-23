@@ -678,6 +678,11 @@ form textarea{
   color: grey;
 }
 
+.table-person .checkbox {
+  outline: none;
+  height: 35px;
+}
+
 .skill {
   min-width: 100px;
 }
