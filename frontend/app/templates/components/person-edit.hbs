@@ -16,7 +16,11 @@
       <div id="collapseOne" class="collapse show border border-primary rounded-bottom">
         <div class="card-body row">
           <div class="col-sm-3" id="profile-content-edit">
-            {{picture-edit picturePath=person.picturePath uploadPath=personPictureUploadPath}}
+            <Table class="table-person">
+              <div>
+                {{picture-edit picturePath=person.picturePath uploadPath=personPictureUploadPath}}
+              </div>
+            </Table>
           </div>
           <div class="col-sm-3">
             <table class="table-person">

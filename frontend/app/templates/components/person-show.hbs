@@ -13,10 +13,18 @@
   <div class="card-body">
     <div class="row" id="profile-content-show">
       <div class="col-sm-3">
-        <img id="img-avatar-read"
-             src={{person.picturePath}}
-               class="img-polaroid profil-img rounded-circle"
-        alt="">
+        <table>
+          <tr>
+            <img id="img-avatar-read" src={{person.picturePath}} class="img-polaroid profil-img rounded-circle" alt="">
+          </tr>
+          <div class="mt-4">
+          </div>
+          <tr>
+            <a onclick={{personEditing}}>
+              <td>Bearbeiten <i class="fa fa-pencil" aria-hidden="true"></i></td>
+            </a>
+          </tr>
+        </table>
       </div>
       <div class="col-sm-3">
         <table class="table-person">
