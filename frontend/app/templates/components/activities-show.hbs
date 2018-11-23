@@ -2,8 +2,7 @@
   <div class="card-header bg-primary">
     <div class="row">
       <div class="col-sm-6">
-        <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseActivity">Stationen
-        ({{person.activities.length}})</a>
+        <a class="card-link text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseActivity">Stationen ({{person.activities.length}})</a>
       </div>
       <div class="col-sm-6 text-right d-block">
         <a onclick={{action (toggle 'activityNew' this)}} role="button" class="card-link text-white"><i class="fa {{~if activityNew ' abort' ' add'~}}"></i></a>
