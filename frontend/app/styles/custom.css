@@ -871,6 +871,19 @@ button::-moz-focus-inner {
   color: #8e8e8e ;
 }
 
+.navbar .navbar-nav .nav-item .nav-link a:hover {
+  text-decoration: none;
+}
+
+/* These two are for Entwickler and Systemtechniker under Fachwissenskala*/
+.navbar .navbar-nav .nav-item .active{
+  color: #1E5A96;
+}
+
+.navbar .navbar-nav .nav-item a{
+  color: #8e8e8e ;
+}
+
 /* Bootstrap Fixes */
 .card {
   border: 0px;
