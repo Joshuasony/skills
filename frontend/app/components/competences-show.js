@@ -14,6 +14,6 @@ export default Component.extend({
   amountOfCompetences: computed(function() {
     let competences = this.get('person.competences');
     if (competences == null) return 0;
-    return competences.split(/\r\n|\r|\n/).length - 1;
+    return competences.split(/\r\n|\r|\n/).length;
   })
 });
