@@ -683,10 +683,10 @@ form textarea{
   font-weight: bold;
 }
 
-a:hover .fa, a:active .fa, a:focus .fa {
+/*a:hover .fa, a:active .fa, a:focus .fa {
   color: #61B44B;
   transition: 0.3s;
-}
+}*/
 
 [data-toggle="collapse"].collapsed .angle:before {
   content: "\f107";
@@ -864,12 +864,18 @@ button::-moz-focus-inner {
 
 /* For all the bearbeiten,speichern und abbrechen "buttons" */
 
-.edit-Buttons {
+.edit-buttons {
   color: #1E5A96 !important;
 }
 
-.edit-Buttons:hover {
+.edit-buttons:hover {
   color: green !important;
+}
+
+
+
+.abort-edit-buttons:hover, .abort-edit-buttons i:hover {
+  color: red !important;
 }
 
 /* These two are for the CV and Fachwissensskala options under person-actions */
