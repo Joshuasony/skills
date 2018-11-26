@@ -8,7 +8,7 @@ export default Component.extend({
     return this.get('educations');
   }),
 
-  amountOfEducations: computed(function(){
+  amountOfEducations: computed(function() {
     return this.get('educations.length')
   }),
 
