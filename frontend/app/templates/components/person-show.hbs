@@ -6,12 +6,12 @@
         {{#basic-dropdown as |dd|}}
           {{#dd.trigger}}
             <a class="edit-buttons">
-              <td><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Mehr Optionen</td>
+              <td><i class="fa fa-cog" aria-hidden="true"></i> Mehr Optionen</td>
             </a>
           {{/dd.trigger}}
           {{#dd.content class="content-bootstrap-feel"}}
             <a onclick={{action 'deletePerson' person}} role="button" class="edit-buttons">
-              <td><i class="fa fa-trash-o" aria-hidden="true"></i> Profil löschen</td>
+              <td><i class="fa fa-trash-o align-bottom" aria-hidden="true"></i> Profil löschen</td>
             </a>
           {{/dd.content}}
         {{/basic-dropdown}}
