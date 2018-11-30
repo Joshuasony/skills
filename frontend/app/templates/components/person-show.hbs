@@ -1,3 +1,29 @@
+<div>
+  <div>
+    <div  class="d-flex">
+      <div class="mr-auto p-2"></div>
+      <div class="p-2">
+        {{#basic-dropdown as |dd|}}
+          {{#dd.trigger}}
+            <a class="edit-buttons">
+              <td><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Mehr Optionen</td>
+            </a>
+          {{/dd.trigger}}
+          {{#dd.content class="content-bootstrap-feel"}}
+            <a onclick={{action 'deletePerson' person}} class="edit-buttons">
+              <td><i class="fa fa-trash-o" aria-hidden="true"></i> Profil löschen</td>
+            </a>
+          {{/dd.content}}
+        {{/basic-dropdown}}
+      </div>
+      <div class="p-2">
+        <a onclick={{pipe (action 'exportCvOdt' person.id)}} class="edit-buttons">
+          <td><i class="fa fa-download" aria-hidden="true"></i> Export</td>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="card-header bg-primary">
   <div class="row">
     <div class="col-sm-6">
