@@ -729,6 +729,76 @@ form textarea{
   font-size: 20px;
 }
 
+/* Table Styling in Tabs */
+.table-uebersicht {
+  width: 100%;
+}
+
+.table-uebersicht td:first-child, .table-uebersicht label {
+  width: 50%;
+}
+
+.table-uebersicht label {
+  float: left;
+}
+
+.table-uebersicht td:last-child {
+  width: 50%;
+}
+
+.table-uebersicht input, .table-uebersicht button, .table-uebersicht .ember-power-select-trigger {
+  width: 45%;
+  float: right;
+}
+
+.table-uebersicht .nextToDelete {
+  position: relative;
+}
+
+.table-uebersicht .nextToDelete input {
+  width: 40%;
+  margin-right: 5%;
+}
+
+.table-uebersicht .deleteField {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+}
+
+#delete-company-icon {
+  position: absolute;
+  left: 490px;
+}
+
+#delete-confirmation-modal {
+  padding-right: 9px;
+  display: block;
+  color: black;
+  font-weight: normal;
+}
+
+#cancel-button {
+  width: 100px;
+}
+
+#delete-button {
+  width: 100px;
+}
+
+.modal-backdrop-blue {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000066;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  z-index: 1040;
+}
+
 /* FWS */
 table.fws tr td:first-child {
   width: 200px;
