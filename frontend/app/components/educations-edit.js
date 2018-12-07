@@ -23,7 +23,14 @@ export default Component.extend(EKMixin, {
   }),
 
   abortEducations: on(keyUp('Escape'), function() {
-    this.educationsEditing();
+    let educations = this.get('person.educations').toArray();
+    educations.forEach(education => {
+      if (education.get('hasDirtyAttributes')) {
+        education.rollbackAttributes();
+      }
+    });
+    this.sendAction('educationsEditing');
+    ;
   }),
 
   i18n: service(),

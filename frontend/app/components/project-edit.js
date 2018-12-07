@@ -46,6 +46,10 @@ export default Component.extend(EKMixin, {
   }),
 
   abortProject: on(keyUp('Escape'), function() {
+    let project = this.get('project')
+    if(project.get('hasDirtyAttributes')) {
+      project.rollbackAttributes();
+    }
     this.done();
   }),
 

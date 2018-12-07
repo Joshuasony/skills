@@ -37,6 +37,15 @@ export default Component.extend(EKMixin, {
   }),
 
   abortEducations: on(keyUp('Escape'), function() {
+    let offers = this.get('company.offers').toArray();
+    offers.forEach(offer => {
+      if (offer.get('isNew')) {
+        offer.destroyRecord();
+      }
+      if(offer.get('hasDirtyAttributes')) {
+        offer.rollbackAttributes();
+      }
+    });
     this.companyOfferEditing();
   }),
 
