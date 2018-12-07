@@ -2,9 +2,11 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import sortByYear from '../utils/sort-by-year';
 import { computed } from '@ember/object';
+import Ember from 'ember';
+import { EKMixin , keyUp } from 'ember-keyboard';
 
 
-export default Component.extend({
+export default Component.extend(EKMixin, {
   /* exclude where id like null */
   filteredEducations: computed('@each.id', function() {
     return this.get('sortedEducations').filterBy('id');
@@ -15,6 +17,14 @@ export default Component.extend({
   init() {
     this._super(...arguments);
   },
+
+  activateKeyboard: Ember.on('init', function() {
+    this.set('keyboardActivated', true);
+  }),
+
+  abortEducations: Ember.on(keyUp('Escape'), function() {
+    this.educationsEditing();
+  }),
 
   i18n: service(),
 

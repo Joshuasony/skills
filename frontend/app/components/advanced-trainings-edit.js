@@ -2,8 +2,11 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import sortByYear from "../utils/sort-by-year";
 import { computed } from '@ember/object';
+import Ember from 'ember';
+import { EKMixin , keyUp } from 'ember-keyboard';
 
-export default Component.extend({
+
+export default Component.extend(EKMixin, {
   /* exclude where id like null */
   filteredAdvancedTrainings: computed('@each.id', function() {
     return this.get('sortedAdvancedTrainings').filterBy('id');
@@ -12,6 +15,14 @@ export default Component.extend({
   sortedAdvancedTrainings: sortByYear('advanced-trainings'),
 
   i18n: service(),
+
+  activateKeyboard: Ember.on('init', function() {
+    this.set('keyboardActivated', true);
+  }),
+
+  abortEducations: Ember.on(keyUp('Escape'), function() {
+    this.advancedTrainingsEditing();
+  }),
 
   actions: {
     submit(person) {
