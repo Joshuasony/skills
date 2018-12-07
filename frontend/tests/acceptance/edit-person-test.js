@@ -1,4 +1,4 @@
-import { test } from 'qunit';
+import { test, skip } from 'qunit';
 import moduleForAcceptance from 'frontend/tests/helpers/module-for-acceptance';
 import { authenticateSession } from 'frontend/tests/helpers/ember-simple-auth';
 import { setFlatpickrDate } from 'ember-flatpickr/test-support/helpers';
@@ -54,7 +54,7 @@ test('/people/:id edit person data', async function(assert) {
 
 });
 
-test('/people/:id edit person competences', async function(assert) {
+skip('/people/:id edit person competences', async function(assert) {
   assert.expect(4);
 
   await applicationPage.visitHome('/');

@@ -1,8 +1,7 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import sortByYear from "../utils/sort-by-year";
-import { computed } from '@ember/object';
-import Ember from 'ember';
+import { on } from '@ember/object/evented';
 import { EKMixin , keyUp } from 'ember-keyboard';
 
 
@@ -12,11 +11,11 @@ export default Component.extend(EKMixin, {
 
   i18n: service(),
 
-  activateKeyboard: Ember.on('init', function() {
+  activateKeyboard: on('init', function() {
     this.set('keyboardActivated', true);
   }),
 
-  abortAdvancedTrainings: Ember.on(keyUp('Escape'), function() {
+  abortAdvancedTrainings: on(keyUp('Escape'), function() {
     this.advancedTrainingsEditing();
   }),
 
