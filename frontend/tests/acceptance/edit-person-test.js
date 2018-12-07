@@ -4,6 +4,7 @@ import { authenticateSession } from 'frontend/tests/helpers/ember-simple-auth';
 import { setFlatpickrDate } from 'ember-flatpickr/test-support/helpers';
 import applicationPage from 'frontend/tests/pages/application';
 import page from 'frontend/tests/pages/person-edit';
+import { triggerKeyUp } from 'ember-keyboard';
 
 moduleForAcceptance('Acceptance | edit person', {
   beforeEach() {
@@ -52,6 +53,19 @@ test('/people/:id edit person data', async function(assert) {
   assert.equal(page.profileData.nationalities, 'Samoa')
 
 
+});
+
+test('/people/:id abort with escape', async function(assert) {
+  assert.expect(1);
+  await applicationPage.visitHome('/');
+  await selectChoose('#people-search', '.ember-power-select-option', 0);
+
+  await page.toggleEditForm();
+
+  await triggerKeyUp('Escape');
+
+  // Testing if the header of competence-show is there, stherefore profing we're in show
+  assert.equal($('#competence-show-header').attr('class'), "card-header bg-primary");
 });
 
 skip('/people/:id edit person competences', async function(assert) {

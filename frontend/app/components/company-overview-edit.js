@@ -29,7 +29,7 @@ export default Component.extend(EKMixin, {
 
   abortEducations: on(keyUp('Escape'), function() {
     let company = this.get('company')
-    if(company.get('hasDirtyAttributes$')) {
+    if (company.get('hasDirtyAttributes$')) {
       company.rollbackAttributes()
     }
     let locations = this.get("company.locations").toArray();
@@ -39,7 +39,7 @@ export default Component.extend(EKMixin, {
       if (location.get("isNew")) {
         location.destroyRecord();
       }
-      if(location.get('hasDirtyAttributes')) {
+      if (location.get('hasDirtyAttributes')) {
         location.rollbackAttributes();
       }
     });
@@ -47,7 +47,7 @@ export default Component.extend(EKMixin, {
       if (quantity.get("isNew")) {
         quantity.destroyRecord();
       }
-      if(quantity.get('hasDirtyAttributes')) {
+      if (quantity.get('hasDirtyAttributes')) {
         quantity.rollbackAttributes();
       }
     });
