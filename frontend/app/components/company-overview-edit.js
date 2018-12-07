@@ -1,7 +1,9 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
+import Ember from 'ember';
+import { EKMixin , keyUp } from 'ember-keyboard';
 
-export default Component.extend({
+export default Component.extend(EKMixin, {
   store: service(),
   i18n: service(),
   router: service(),
@@ -20,6 +22,14 @@ export default Component.extend({
     });
     company.set(relationshipName, records);
   },
+
+  activateKeyboard: Ember.on('init', function() {
+    this.set('keyboardActivated', true);
+  }),
+
+  abortEducations: Ember.on(keyUp('Escape'), function() {
+    this.companyEditing();
+  }),
 
   actions: {
     submit(changeset) {

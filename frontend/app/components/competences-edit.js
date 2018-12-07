@@ -1,8 +1,11 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { isBlank } from '@ember/utils';
+import Ember from 'ember';
+import { EKMixin , keyUp } from 'ember-keyboard';
 
-export default Component.extend({
+
+export default Component.extend(EKMixin, {
   i18n: service(),
   store: service(),
 
@@ -30,6 +33,14 @@ export default Component.extend({
     }
     return !blurredEl.classList.contains('ember-power-select-search-input');
   },
+
+  activateKeyboard: Ember.on('init', function() {
+    this.set('keyboardActivated', true);
+  }),
+
+  abortEducations: Ember.on(keyUp('Escape'), function() {
+    this.competencesEditing();
+  }),
 
   actions: {
 
