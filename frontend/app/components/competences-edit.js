@@ -38,7 +38,7 @@ export default Component.extend(EKMixin, {
     this.set('keyboardActivated', true);
   }),
 
-  abortEducations: Ember.on(keyUp('Escape'), function() {
+  abortCompetences: Ember.on(keyUp('Escape'), function() {
     this.competencesEditing();
   }),
 

@@ -7,10 +7,6 @@ import { EKMixin , keyUp } from 'ember-keyboard';
 
 
 export default Component.extend(EKMixin, {
-  /* exclude where id like null */
-  filteredAdvancedTrainings: computed('@each.id', function() {
-    return this.get('sortedAdvancedTrainings').filterBy('id');
-  }),
 
   sortedAdvancedTrainings: sortByYear('advanced-trainings'),
 
@@ -20,7 +16,7 @@ export default Component.extend(EKMixin, {
     this.set('keyboardActivated', true);
   }),
 
-  abortEducations: Ember.on(keyUp('Escape'), function() {
+  abortAdvancedTrainings: Ember.on(keyUp('Escape'), function() {
     this.advancedTrainingsEditing();
   }),
 
@@ -51,9 +47,8 @@ export default Component.extend(EKMixin, {
           });
         });
     },
-    deleteAdvancedTrainings(advancedTraining) {
+    deleteAdvancedTrainings(advancedTraining, event) {
       advancedTraining.destroyRecord()
-        .then(advanced_training => this.sendAction('done'))
         .then(() => this.get('notify').success('Weiterbildung wurde entfernt!'))
     },
     confirmDestroy(advancedTraining) {
