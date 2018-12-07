@@ -39,6 +39,10 @@ export default Component.extend(EKMixin, {
   }),
 
   abortCompetences: on(keyUp('Escape'), function() {
+    let person = this.get('person');
+    if(person.get('hasDirtyAttributes')) {
+      person.rollbackAttributes();
+    }
     this.competencesEditing();
   }),
 
