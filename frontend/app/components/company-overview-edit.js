@@ -28,7 +28,30 @@ export default Component.extend(EKMixin, {
   }),
 
   abortEducations: on(keyUp('Escape'), function() {
-    this.companyEditing();
+    let company = this.get('company')
+    if(company.get('hasDirtyAttributes$')) {
+      company.rollbackAttributes()
+    }
+    let locations = this.get("company.locations").toArray();
+    let employeeQuantities = this.get("company.employeeQuantities").toArray();
+
+    locations.forEach(location => {
+      if (location.get("isNew")) {
+        location.destroyRecord();
+      }
+      if(location.get('hasDirtyAttributes')) {
+        location.rollbackAttributes();
+      }
+    });
+    employeeQuantities.forEach(quantity => {
+      if (quantity.get("isNew")) {
+        quantity.destroyRecord();
+      }
+      if(quantity.get('hasDirtyAttributes')) {
+        quantity.rollbackAttributes();
+      }
+    });
+    this.sendAction("companyEditing");
   }),
 
   actions: {
