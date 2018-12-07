@@ -30,7 +30,6 @@ export default Component.extend(EKMixin, {
       }
     });
     this.sendAction('educationsEditing');
-    ;
   }),
 
   i18n: service(),

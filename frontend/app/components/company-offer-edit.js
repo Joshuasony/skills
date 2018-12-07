@@ -42,7 +42,7 @@ export default Component.extend(EKMixin, {
       if (offer.get('isNew')) {
         offer.destroyRecord();
       }
-      if(offer.get('hasDirtyAttributes')) {
+      if (offer.get('hasDirtyAttributes')) {
         offer.rollbackAttributes();
       }
     });
