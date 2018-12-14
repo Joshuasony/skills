@@ -43,6 +43,7 @@ export default create({
   },
 
   competences: {
+    amountOf: text('#amount-of-competences'),
     toggleForm: clickable('[data-test-company-edit-form-toggle]'),
 
     list: collection({
