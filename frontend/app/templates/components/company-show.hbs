@@ -1,9 +1,5 @@
 <div class="row">
-  <div class="col-sm-12">
-    <span class="text-right d-block">
-      <strong>Letztes Update <span class="text-danger"><time datetime={{moment-format company.updatedAt}}>{{moment-format company.updatedAt 'L LT'}}</time></span></strong>
-    </span>
-  </div>
+  {{updated-at entry=company}}
 </div>
 <hr class="">
 <div class="collapse-group">
