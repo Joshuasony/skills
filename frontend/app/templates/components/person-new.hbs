@@ -23,7 +23,7 @@
               </tr>
               <tr>
                 <td>
-                  <Label> Funktion </Label>
+                  <label> Funktion </label>
                   {{#power-select
                   triggerId="role"
                   selected=newPerson.roles.firstObject
@@ -63,7 +63,7 @@
               <tr>
                 <td>
                   <div class="text-field form-group">
-                    <label class="label-date form-field--label" for='date_location'>Geburtsdatum</label>
+                    <label for='date_location'>Geburtsdatum</label>
                     <div id="date_location">
                       {{ember-flatpickr
                         allowInput=false
@@ -77,7 +77,7 @@
               </tr>
               <tr>
                 <td>
-                  <Label>Nationalität</Label>
+                  <label>Nationalität</label>
                   {{#power-select
                     triggerId="nationality"
                     options=countries
@@ -93,7 +93,7 @@
               </tr>
               <tr>
                 <td>
-                  <Label>Weitere Nationalität</Label>
+                  <label>Weitere Nationalität</label>
                   {{#power-select
                     options=countries
                     allowClear=true
@@ -112,7 +112,7 @@
               </tr>
               <tr>
                 <td>
-                  <Label> Zivilstand </Label>
+                  <label> Zivilstand </label>
                   {{#power-select
                   triggerId="maritalStatus"
                   selected=selectedMaritalStatus
