@@ -13,7 +13,7 @@
           transitionTo="people"
           class='edit-buttons'
         }}
-          Profil Löschen
+          Person löschen
         {{/delete-with-confirmation}}
       {{/dd.content}}
     {{/basic-dropdown}}
@@ -63,7 +63,7 @@
             <div class="mb-2">
             </div>
             <tr class="description">
-              <td>Titel</td>
+              <td>Abschluss</td>
             </tr>
             <tr>
               <td id="data-test-person-title">{{person.title}}</td>
@@ -81,7 +81,7 @@
             <div class="mb-2">
             </div>
             <tr class="description">
-              <td>Firma</td>
+              <td>Firma / Kategorie</td>
             </tr>
             <tr>
               <td data-test-person-company>{{person.company.name}}</td>
@@ -113,7 +113,7 @@
             <div class="mb-2">
             </div>
             <tr class="description">
-              <td>Wohnort</td>
+              <td>Wohnort (Stadt)</td>
             </tr>
             <tr>
               <td id="data-test-person-location">{{person.location}}</td>
