@@ -7,7 +7,5 @@ export default Component.extend({
     if (competences == null) return '';
     return competences
       .split('\n')
-      .map(c => c.trim())
-      .filter(c => c !== '');
   })
 });
