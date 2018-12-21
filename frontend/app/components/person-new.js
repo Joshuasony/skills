@@ -8,6 +8,7 @@ import Person from '../models/person';
 export default Component.extend({
   i18n: service(),
   store: service(),
+  router: service(),
 
   init() {
     this._super(...arguments);
@@ -63,12 +64,13 @@ export default Component.extend({
         .then(() => this.get('notify').success('Person wurde erstellt!'))
         .then(() => this.get('notify').success('Füge nun ein Profilbild hinzu!'))
         .catch(() => {
-          let errors = []
-          errors.concat(this.get('newPerson.errors'))
-          let languageSkills = this.get('newPerson.languageSkills');
-          languageSkills.forEach(skill => {
-            errors = errors.concat(skill.get('errors').slice())
+          let person = this.get('newPerson');
+          let errors = person.get('errors').slice();
+
+          person.get('languageSkills').forEach(skill => {
+            errors = errors.concat(skill.get('errors').slice());
           });
+
           errors.forEach(({ attribute, message }) => {
             let translated_attribute = this.get('i18n').t(`person.${attribute}`)['string']
             this.get('notify').alert(`${translated_attribute} ${message}`, {
@@ -123,5 +125,11 @@ export default Component.extend({
       this.set('selectedMaritalStatus', selectedMaritalStatus);
     },
 
+    abortCreate() {
+      if (this.get('newPerson.isNew')) {
+        this.get('newPerson').destroyRecord();
+      }
+      this.get('router').transitionTo('/people');
+    }
   }
 });

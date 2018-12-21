@@ -90,11 +90,10 @@ export default Component.extend(EKMixin, {
         .then(() => this.get('notify').success('Personalien wurden aktualisiert!'))
         .catch(() => {
           let person = this.get('person');
-          let languageSkills = this.get('person.languageSkills');
           let errors = person.get('errors').slice(); // clone array as rollbackAttributes mutates
 
-          languageSkills.forEach(skill => {
-            errors = errors.concat(skill.get('errors').slice())
+          person.get('languageSkills').forEach(skill => {
+            errors = errors.concat(skill.get('errors').slice());
           });
 
           person.rollbackAttributes();

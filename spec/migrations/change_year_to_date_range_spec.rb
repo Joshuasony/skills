@@ -21,7 +21,6 @@ describe ChangeYearToDateRange do
   end
 
   context 'up' do
-
     before { migration.down }
 
     it 'changes columns to start_at and finish_at' do

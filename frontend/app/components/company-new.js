@@ -1,8 +1,9 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { Promise } from 'rsvp'
+import { Promise } from 'rsvp';
 
 export default Component.extend({
+  router: service(),
   store: service(),
 
   actions: {
@@ -36,6 +37,13 @@ export default Component.extend({
 
     deleteEmployeeQuantity(quantity) {
       return quantity.destroyRecord();
+    },
+
+    abortCreate() {
+      if (this.get('newCompany.isNew')) {
+        this.get('newCompany').destroyRecord();
+      }
+      this.get('router').transitionTo('/companies');
     }
   }
 });

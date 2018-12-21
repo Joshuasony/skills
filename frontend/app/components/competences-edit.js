@@ -4,11 +4,9 @@ import { isBlank } from '@ember/utils';
 import { on } from '@ember/object/evented';
 import { EKMixin , keyUp } from 'ember-keyboard';
 
-
 export default Component.extend(EKMixin, {
   i18n: service(),
   store: service(),
-
 
   init() {
     this._super(...arguments);

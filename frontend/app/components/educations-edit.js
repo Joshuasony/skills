@@ -5,8 +5,9 @@ import { computed } from '@ember/object';
 import { on } from '@ember/object/evented';
 import { EKMixin , keyUp } from 'ember-keyboard';
 
-
 export default Component.extend(EKMixin, {
+  i18n: service(),
+
   /* exclude where id like null */
   filteredEducations: computed('@each.id', function() {
     return this.get('sortedEducations').filterBy('id');
@@ -32,8 +33,6 @@ export default Component.extend(EKMixin, {
     this.sendAction('educationsEditing');
   }),
 
-  i18n: service(),
-
   actions: {
     submit(person) {
       person.save()
@@ -46,7 +45,6 @@ export default Component.extend(EKMixin, {
         )
         .then (() => this.sendAction('submit'))
         .then (() => this.get('notify').success('Successfully saved!'))
-
 
         .catch(() => {
           let educations = person.get('educations');
@@ -64,6 +62,7 @@ export default Component.extend(EKMixin, {
 
         });
     },
+
     abortEdit() {
       let educations = this.get('person.educations').toArray();
       educations.forEach(education => {
