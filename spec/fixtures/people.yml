@@ -32,6 +32,8 @@ bob:
   title: BSc in Cleaning
   competences: Java\n Ruby
   company: firma
+  email: bob@example.com
+  department: /sys
 
 alice:
   birthdate: 2016-10-20 13:15:11
@@ -43,3 +45,5 @@ alice:
   title: MSc in writing
   competences: LaTex\n Puppet\n Bash
   company: partner
+  email: alice@example.com
+  department: /sys

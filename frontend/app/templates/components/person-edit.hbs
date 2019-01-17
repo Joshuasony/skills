@@ -29,6 +29,9 @@
                 <td>{{f.text-field 'name' label="Name"}}</td>
               </tr>
               <tr>
+                <td>{{f.text-field 'email' label="Email"}}</td>
+              </tr>
+              <tr>
                 <td>{{f.text-field 'title' label="Abschluss"}}</td>
               </tr>
               <tr>
@@ -47,6 +50,23 @@
                   as |role|
                   }}
                     {{role.name}}
+                  {{/power-select}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Organisationseinheit</label>
+                  {{#power-select
+                    triggerId="department"
+                    selected=person.department
+                    options=departments
+                    onfocus=(action "handleFocus")
+                    onblur=(action "handleBlur")
+                    onchange=(action (mut person.department))
+                    onkeydown=(action "setWithTab" 'setDepartment')
+                  as |department|
+                  }}
+                    {{department}}
                   {{/power-select}}
                 </td>
               </tr>

@@ -14,6 +14,9 @@ export default ApplicationComponent.extend({
     this._super(...arguments);
     this.initMaritalStatuses();
     this.initNationalities();
+    this.departments = ['/dev/one', '/dev/two', '/dev/tre',
+      '/dev/ruby', '/mid', '/ux', '/zh',
+      '/sys', '/bs', 'Funktionsbereiche']
   },
 
   initMaritalStatuses() {
@@ -116,6 +119,10 @@ export default ApplicationComponent.extend({
         this.set('newPerson.nationality2', undefined);
       }
       this.set('selectedNationality2', selectedCountry);
+    },
+
+    setDepartment(department) {
+      this.set('newPerson.department', department)
     },
 
     setCompany(company) {

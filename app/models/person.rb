@@ -36,9 +36,10 @@ class Person < ApplicationRecord
   has_many :language_skills, dependent: :delete_all
 
   validates :birthdate, :location, :name, :nationality,
-            :roles, :title, :marital_status, presence: true
-  validates :location, :name,
-            :title, length: { maximum: 100 }
+            :roles, :title, :marital_status,
+            :email, :department,  presence: true
+  validates :location, :name, :title,
+            :email, :department, length: { maximum: 100 }
 
   validates :nationality,
             inclusion: { in: ISO3166::Country.all.collect(&:alpha2) }

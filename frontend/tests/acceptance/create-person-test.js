@@ -21,6 +21,7 @@ skip('creating a new person', async function(assert) {
 
   /* eslint "no-undef": "off" */
   await selectChoose('#role', '.ember-power-select-option', 0);
+  await selectChoose('#department', '/dev/ruby');
   await selectChoose('#company', 'Firma');
   await selectChoose('#nationality', '.ember-power-select-option', 0);
   await selectChoose('#maritalStatus', 'verheiratet');
@@ -28,15 +29,19 @@ skip('creating a new person', async function(assert) {
   setFlatpickrDate('.flatpickr-input', '26.10.2018')
   await page.createPerson({
     name: 'Hansjoggeli',
+    email: 'hansjoggeli@example.com',
     title: 'Dr.',
     location: 'Chehrplatz Schwandi',
   });
 
   assert.ok(/^\/people\/\d+$/.test(currentURL()));
   assert.equal(editPage.profileData.name, 'Hansjoggeli');
+  assert.equal(editPage.profileData.email, 'hansjoggeli@example.com');
   assert.equal(editPage.profileData.title, 'Dr.');
   assert.equal(editPage.profileData.role, 'Software-Engineer');
   assert.equal(editPage.profileData.birthdate, '26.10.2018');
+  assert.equal(editPage.profileData.department, '/dev/ruby');
+  assert.equal(editPage.profileData.company, 'Firma');
   assert.equal(editPage.profileData.nationalities, 'Afghanistan');
   assert.equal(editPage.profileData.location, 'Chehrplatz Schwandi');
   assert.equal(editPage.profileData.maritalStatus, 'ledig');

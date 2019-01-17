@@ -16,7 +16,7 @@ moduleForAcceptance('Acceptance | edit person', {
 });
 
 test('/people/:id edit person data', async function(assert) {
-  assert.expect(7);
+  assert.expect(12);
 
   await applicationPage.visitHome('/');
   await selectChoose('#people-search', '.ember-power-select-option', 0);
@@ -25,6 +25,7 @@ test('/people/:id edit person data', async function(assert) {
 
   /* eslint "no-undef": "off" */
   await selectChoose('#role', '.ember-power-select-option', 0)
+  await selectChoose('#department', '/dev/one');
   await selectChoose('#company', 'Firma');
   await selectChoose('#nationality', "Samoa");
   await selectChoose('#maritalStatus', 'verheiratet');
@@ -32,15 +33,21 @@ test('/people/:id edit person data', async function(assert) {
   setFlatpickrDate('.flatpickr-input', '26.10.2018')
 
   await page.editForm.name('Hansjoggeli');
+  await page.editForm.email('hansjoggeli@example.com');
   await page.editForm.title('Dr.');
   await page.editForm.location('Chehrplatz Schwandi');
   await page.editForm.submit();
 
   assert.equal(page.profileData.name, 'Hansjoggeli');
+  assert.equal(page.profileData.email, 'hansjoggeli@example.com');
   assert.equal(page.profileData.title, 'Dr.');
   assert.equal(page.profileData.role, 'System-Engineer');
+  assert.equal(page.profileData.department, '/dev/one');
+  assert.equal(page.profileData.company, 'Firma');
+  assert.equal(page.profileData.birthdate, '26.10.2018');
   assert.equal(page.profileData.nationalities, 'Samoa');
   assert.equal(page.profileData.location, 'Chehrplatz Schwandi');
+  assert.equal(page.profileData.maritalStatus, 'verheiratet');
 
   await page.toggleEditForm();
   await page.toggleNationalities();

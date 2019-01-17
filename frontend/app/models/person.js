@@ -12,6 +12,8 @@ const Person = DS.Model.extend({
   roles: DS.hasMany('role'),
   title: DS.attr('string'),
   competences: DS.attr('string'),
+  email: DS.attr('string'),
+  department: DS.attr('string'),
   updatedAt: DS.attr('date'),
 
   company: DS.belongsTo('company'),

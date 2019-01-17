@@ -18,6 +18,9 @@ export default ApplicationComponent.extend(EKMixin, {
     this.initCheckbox();
     this.callBackRole = this.get('person.roles.firstObject');
     this.callBackCompany = this.get('person.company');
+    this.departments = ['/dev/one', '/dev/two', '/dev/tre',
+      '/dev/ruby', '/mid', '/ux', '/zh',
+      '/sys', '/bs', 'Funktionsbereiche']
   },
 
   activateKeyboard: on('init', function() {
@@ -161,6 +164,10 @@ export default ApplicationComponent.extend(EKMixin, {
         this.set('person.nationality2', undefined);
       }
       this.set('selectedNationality2', selectedCountry);
+    },
+
+    setDepartment(department) {
+      this.set('person.department', department)
     },
 
     setCompany(company) {
