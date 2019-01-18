@@ -63,7 +63,7 @@ test('/people/:id abort with escape', async function(assert) {
   assert.equal($('#competence-show-header').attr('class'), "card-header bg-info");
 });
 
-skip('/people/:id edit person competences', async function(assert) {
+test('/people/:id edit person competences', async function(assert) {
   assert.expect(4);
 
   await applicationPage.visitHome('/');
