@@ -34,10 +34,11 @@ class Person < ApplicationRecord
   has_many :expertise_topics, through: :expertise_topic_skill_values
   has_and_belongs_to_many :roles
   has_many :language_skills, dependent: :delete_all
+  has_many :people_roles, dependent: :destroy
 
   validates :birthdate, :location, :name, :nationality,
-            :roles, :title, :marital_status,
-            :email, :department,  presence: true
+            :title, :marital_status,
+            :email, :department, presence: true
   validates :location, :name, :title,
             :email, :department, length: { maximum: 100 }
 

@@ -4,6 +4,7 @@ class PersonSeeder
     names.each do |name|
       person = seed_person(name).first
       break unless person
+      seed_people_roles(person)
       seed_image(person)
       associations = [:activity, :advanced_training, :project, :education, :person_competence, :language_skill]
       associations.each do |a|
@@ -27,6 +28,16 @@ class PersonSeeder
   def seed_image(person)
     File.open('spec/fixtures/files/picture.png') do |f|
       person.update_attributes(picture: f)
+    end
+  end
+  
+  def seed_people_roles(person)
+    person.roles.each do |role|
+      people_role = PeopleRole.where("person_id = :pid and role_id = :rid",
+                                     { pid: person.id, rid: role.id }).first
+      people_role.level = 'S1'
+      people_role.percent = rand(1..10) * 10
+      people_role.save!
     end
   end
 

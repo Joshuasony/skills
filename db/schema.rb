@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_072919) do
+ActiveRecord::Schema.define(version: 2019_01_18_072905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,8 @@ ActiveRecord::Schema.define(version: 2019_01_17_072919) do
   create_table "people_roles", force: :cascade do |t|
     t.bigint "person_id"
     t.bigint "role_id"
+    t.string "level"
+    t.decimal "percent", precision: 5, scale: 2
     t.index ["person_id"], name: "index_people_roles_on_person_id"
     t.index ["role_id"], name: "index_people_roles_on_role_id"
   end

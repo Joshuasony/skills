@@ -30,6 +30,7 @@ export default create({
     email: fillable('[name="person[email]"]'),
     title: fillable('[name="person[title]"]'),
     location: fillable('[name="person[location]"]'),
+    rolePercent: fillable('[name="person[role-percent]"]'),
   },
 
   profileData: {

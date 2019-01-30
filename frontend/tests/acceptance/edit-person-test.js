@@ -24,7 +24,10 @@ test('/people/:id edit person data', async function(assert) {
   await page.toggleEditForm();
 
   /* eslint "no-undef": "off" */
-  await selectChoose('#role', '.ember-power-select-option', 0)
+  await selectChoose('.role-dropdown', 'System-Engineer');
+  await selectChoose('.level-dropdown', 'S3');
+  await page.editForm.rolePercent('20');
+
   await selectChoose('#department', '/dev/one');
   await selectChoose('#company', 'Firma');
   await selectChoose('#nationality', "Samoa");
@@ -41,7 +44,7 @@ test('/people/:id edit person data', async function(assert) {
   assert.equal(page.profileData.name, 'Hansjoggeli');
   assert.equal(page.profileData.email, 'hansjoggeli@example.com');
   assert.equal(page.profileData.title, 'Dr.');
-  assert.equal(page.profileData.role, 'System-Engineer');
+  assert.equal(page.profileData.role, 'System-Engineer S3 20%');
   assert.equal(page.profileData.department, '/dev/one');
   assert.equal(page.profileData.company, 'Firma');
   assert.equal(page.profileData.birthdate, '26.10.2018');

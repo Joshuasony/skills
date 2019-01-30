@@ -16,7 +16,9 @@ export default ApplicationComponent.extend({
     this.initNationalities();
     this.departments = ['/dev/one', '/dev/two', '/dev/tre',
       '/dev/ruby', '/mid', '/ux', '/zh',
-      '/sys', '/bs', 'Funktionsbereiche']
+      '/sys', '/bs', 'Funktionsbereiche'];
+    this.roleLevels = ['Keine', 'S1', 'S2', 'S3',
+      'S4', 'S5', 'S6'];
   },
 
   initMaritalStatuses() {
@@ -60,7 +62,11 @@ export default ApplicationComponent.extend({
           Promise.all([
             ...newPerson
               .get('languageSkills')
-              .map(languageSkill => languageSkill.save())
+              .map(languageSkill => languageSkill.save()),
+            // Nicht so! peopleRoles an Person anhängen und speichern
+            ...newPerson
+              .get('peopleRoles')
+              .map(peopleRole => peopleRole.save())
           ])
         )
         .then(() => this.sendAction('submit', newPerson))
@@ -85,7 +91,7 @@ export default ApplicationComponent.extend({
 
     abortCreate() {
       this.get('newPerson').destroyRecord();
-      this.get('router').transitionTo("people");
+      this.get('router').transitionTo('people');
     },
 
     handleFocus(select, e) {
@@ -129,8 +135,16 @@ export default ApplicationComponent.extend({
       this.set('newPerson.company', company)
     },
 
-    setRole(selectedRole) {
-      this.set('newPerson.roles', [selectedRole]);
+    setRole(peopleRole, selectedRole) {
+      peopleRole.set('role', selectedRole);
+    },
+
+    setRoleLevel(peopleRole, level) {
+      peopleRole.set('level', level);
+    },
+
+    setRolePercent(peopleRole, event) {
+      peopleRole.set('percent', event.target.value);
     },
 
     setMaritalStatus(selectedMaritalStatus) {
@@ -138,6 +152,10 @@ export default ApplicationComponent.extend({
       const key = Object.keys(obj).find(key => obj[key] === selectedMaritalStatus);
       this.set('newPerson.maritalStatus', key);
       this.set('selectedMaritalStatus', selectedMaritalStatus);
+    },
+
+    addRole(newPerson) {
+      this.get('store').createRecord('people-role', { person: newPerson });
     },
 
   }

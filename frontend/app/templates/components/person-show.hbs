@@ -81,11 +81,17 @@
             <tr class="description">
               <td>Funktion</td>
             </tr>
-            <tr>
-              {{#if person.roles.length}}
-                <td id="data-test-person-role">{{person.roles.firstObject.name}}</td>
-              {{/if}}
-            </tr>
+            {{#if person.peopleRoles.length}}
+              {{#each person.peopleRoles as |peopleRole|}}
+                <tr>
+                  <td id="data-test-person-role">
+                    {{peopleRole.role.name}}
+                    {{peopleRole.level}}
+                    {{peopleRole.percent}}%
+                  </td>
+                </tr>
+              {{/each}}
+            {{/if}}
             <div class="mb-2">
             </div>
             <tr class="description">

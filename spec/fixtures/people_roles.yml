@@ -1,0 +1,11 @@
+people-role1:
+  level: S1
+  percent: 100
+  role: software-engineer
+  person: bob
+
+people-role2:
+  level: S2
+  percent: 80
+  role: system-engineer
+  person: alice

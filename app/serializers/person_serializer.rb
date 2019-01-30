@@ -43,6 +43,10 @@ class PersonSerializer < ApplicationSerializer
     serializer.object.activities.list
   end
 
+  has_many :people_roles do |serializer|
+    serializer.object.people_roles
+  end
+
   has_many :projects do |serializer|
     serializer.object.projects.list
   end
