@@ -1,6 +1,8 @@
 # encoding: utf-8
 class PersonSeeder
   def seed_people(names)
+    seed_roles
+
     names.each do |name|
       person = seed_person(name).first
       break unless person
@@ -30,14 +32,21 @@ class PersonSeeder
       person.update_attributes(picture: f)
     end
   end
+ 
+  def seed_roles
+    10.times do
+      Role.seed do |r|
+        r.name = Faker::Military.unique.army_rank
+      end
+    end
+  end
   
   def seed_people_roles(person)
-    person.roles.each do |role|
-      people_role = PeopleRole.where("person_id = :pid and role_id = :rid",
-                                     { pid: person.id, rid: role.id }).first
-      people_role.level = 'S1'
-      people_role.percent = rand(1..10) * 10
-      people_role.save!
+    PeopleRole.seed do |pr|
+      pr.person_id = person.id
+      pr.role_id = rand(1..10)
+      pr.level = 'S1'
+      pr.percent = rand(1..10) * 10
     end
   end
 
@@ -90,7 +99,6 @@ class PersonSeeder
       p.updated_by = 'seed_user'
       p.name = name.to_s
       p.nationality = 'CH'
-      p.roles = seed_roles 
       p.title = Faker::Job.title
       p.company_id = rand(1..4)
       competences = ""
@@ -98,12 +106,6 @@ class PersonSeeder
       p.competences = competences
       p.email = Faker::Internet.email
       p.department = 'sys'
-    end
-  end
-
-  def seed_roles
-    Role.seed do |a|
-      a.name = Faker::Military.unique.army_rank
     end
   end
 
